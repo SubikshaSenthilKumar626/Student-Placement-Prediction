@@ -25,6 +25,10 @@ The Student Placement Prediction System is a Machine Learning-based web applicat
 - ReportLab
 - OpenPyXL
 
+## Version 1.1
+
+Minor improvements made.
+
 ## 📂 Project Structure
 
 Student_Placement_Prediction/
