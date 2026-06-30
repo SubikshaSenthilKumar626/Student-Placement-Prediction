@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Placement Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- Navigation -->
+
+<nav>
+
+    <h2>🎓 Student Placement Prediction</h2>
+
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/history">History</a></li>
+        <li><a href="/about">About Project</a></li>
+        <li><a href="/developer">Developer</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- Dashboard -->
+
+<div class="container">
+
+    <h1>📊 Student Placement Dashboard</h1>
+
+    <p style="text-align:center;">
+        Monitor placement statistics, model performance, and dataset insights
+        generated using Machine Learning.
+    </p>
+
+    <!-- Statistics -->
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>{{ total_students }}</h2>
+            <p>Total Students</p>
+        </div>
+
+        <div class="card">
+            <h2>{{ placed_students }}</h2>
+            <p>Placed Students</p>
+        </div>
+
+        <div class="card">
+            <h2>{{ not_placed_students }}</h2>
+            <p>Not Placed Students</p>
+        </div>
+
+        <div class="card">
+            <h2>{{ placement_rate }}%</h2>
+            <p>Placement Rate</p>
+        </div>
+
+        <div class="card">
+            <h2>{{ accuracy }}%</h2>
+            <p>Model Accuracy</p>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <!-- Summary -->
+
+    <h2>📋 Dashboard Summary</h2>
+
+    <p>
+        This dashboard provides a quick overview of student placement statistics,
+        the trained Machine Learning model performance, and feature analysis.
+        It helps users understand the overall placement trends within the dataset.
+    </p>
+
+    <hr>
+
+    <!-- Feature Importance -->
+
+    <div class="chart">
+
+        <h2>📈 Feature Importance Analysis</h2>
+
+        <img src="{{ url_for('static', filename='charts/feature_importance.png') }}"
+             alt="Feature Importance Chart">
+
+    </div>
+
+    <hr>
+
+    <!-- Placement Distribution -->
+
+    <div class="chart">
+
+        <h2>🥧 Placement Distribution</h2>
+
+        <img src="{{ url_for('static', filename='charts/placement_distribution.png') }}"
+             alt="Placement Distribution Chart">
+
+    </div>
+
+    <br>
+
+    <a href="/">
+        <button>🏠 Back to Home</button>
+    </a>
+
+</div>
+
+
+<footer>
+
+    <p>© 2026 Student Placement Prediction System</p>
+
+    <p>Developed by <strong>Subi</strong> using Python, Flask & Machine Learning</p>
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Placement Prediction System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- Navigation -->
+
+<nav>
+
+    <h2>🎓 Student Placement Prediction</h2>
+
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/history">History</a></li>
+        <li><a href="/about">About Project</a></li>
+        <li><a href="/developer">Developer</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- Hero Section -->
+
+<section class="hero">
+
+    <h1>🎓 Student Placement Prediction System</h1>
+
+    <p>
+        Predict student placement chances using
+        <strong>Machine Learning</strong>,
+        analyze performance,
+        download reports,
+        and view prediction history.
+    </p>
+
+    <a href="#prediction-form">
+        <button class="hero-btn">
+            🚀 Predict Now
+        </button>
+    </a>
+
+</section>
+
+
+<!-- Feature Cards -->
+
+<section class="features">
+
+    <div class="feature-card">
+        <h2>🤖 AI Prediction</h2>
+        <p>Predict placement using a trained Machine Learning model.</p>
+    </div>
+
+    <div class="feature-card">
+        <h2>📊 Dashboard</h2>
+        <p>View placement statistics and feature importance charts.</p>
+    </div>
+
+    <div class="feature-card">
+        <h2>📜 History</h2>
+        <p>Store and view previous prediction results.</p>
+    </div>
+
+    <div class="feature-card">
+        <h2>📄 PDF Report</h2>
+        <p>Download a professional prediction report instantly.</p>
+    </div>
+
+</section>
+
+
+<!-- Prediction Form -->
+
+<div class="container" id="prediction-form">
+
+    <h1>Placement Prediction Form</h1>
+
+    <form action="/predict" method="POST">
+
+        <label>IQ</label>
+        <input type="number" name="IQ" min="50" max="200" required>
+
+        <label>Previous Semester Result</label>
+        <input type="number"
+               name="Prev_Sem_Result"
+               step="0.01"
+               min="0"
+               max="10"
+               required>
+
+        <label>CGPA</label>
+        <input type="number"
+               name="CGPA"
+               step="0.01"
+               min="0"
+               max="10"
+               required>
+
+        <label>Academic Performance</label>
+        <input type="number"
+               name="Academic_Performance"
+               min="1"
+               max="10"
+               required>
+
+        <label>Internship Experience</label>
+
+        <select name="Internship_Experience" required>
+
+            <option value="">--Select--</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+
+        </select>
+
+        <label>Extra Curricular Score</label>
+
+        <input type="number"
+               name="Extra_Curricular_Score"
+               min="1"
+               max="10"
+               required>
+
+        <label>Communication Skills</label>
+
+        <input type="number"
+               name="Communication_Skills"
+               min="1"
+               max="10"
+               required>
+
+        <label>Projects Completed</label>
+
+        <input type="number"
+               name="Projects_Completed"
+               min="0"
+               max="20"
+               required>
+
+        <button type="submit">
+            Predict Placement
+        </button>
+
+    </form>
+
+</div>
+
+
+<!-- Footer -->
+
+<footer>
+
+    <p>
+        © 2026 Student Placement Prediction System
+    </p>
+
+    <p>
+        Developed by <strong>Subi</strong> using Python, Flask & Machine Learning
+    </p>
+
+</footer>
+
+</body>
+</html>

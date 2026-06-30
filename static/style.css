@@ -1,0 +1,515 @@
+/* ==========================
+   GENERAL
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:linear-gradient(135deg,#5b7cfa,#7a52c7);
+    min-height:100vh;
+    color:#333;
+}
+
+/* ==========================
+   NAVIGATION
+========================== */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#123a8f;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 40px;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+nav h2{
+    font-size:24px;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:20px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:17px;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#ffd700;
+}
+
+/* ==========================
+   HERO SECTION
+========================== */
+
+.hero{
+    text-align:center;
+    color:white;
+    padding:70px 20px;
+    animation:fadeIn .8s ease;
+}
+
+.hero h1{
+    color:white;
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:850px;
+    margin:auto;
+    font-size:20px;
+    line-height:1.8;
+}
+
+.hero-btn{
+    width:auto;
+    margin-top:30px;
+    padding:15px 35px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    background:#ffd700;
+    color:#123a8f;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.hero-btn:hover{
+    transform:translateY(-4px);
+}
+
+/* ==========================
+   FEATURE CARDS
+========================== */
+
+.features{
+    width:90%;
+    max-width:1200px;
+    margin:30px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.feature-card{
+    background:white;
+    border-radius:15px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.feature-card:hover{
+    transform:translateY(-8px);
+}
+
+.feature-card h2{
+    color:#2563eb;
+    margin-bottom:15px;
+}
+
+.feature-card p{
+    color:#555;
+}
+
+/* ==========================
+   MAIN CONTAINER
+========================== */
+
+.container{
+    width:90%;
+    max-width:900px;
+    margin:40px auto;
+    background:white;
+    padding:35px;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+/* ==========================
+   HEADINGS
+========================== */
+
+h1{
+    text-align:center;
+    color:#123a8f;
+    margin-bottom:25px;
+}
+
+.container h2{
+    color:#2563eb;
+    text-align:center;
+    margin-top:25px;
+}
+
+.container h3{
+    text-align:center;
+    margin-top:20px;
+    color:#444;
+}
+
+/* ==========================
+   FORM
+========================== */
+
+label{
+    display:block;
+    margin-top:15px;
+    font-weight:bold;
+}
+
+input,
+select{
+    width:100%;
+    padding:13px;
+    margin-top:8px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+}
+
+input:focus,
+select:focus{
+    outline:none;
+    border:2px solid #2563eb;
+}
+
+/* ==========================
+   BUTTONS
+========================== */
+
+button{
+    width:100%;
+    padding:15px;
+    margin-top:25px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#1747bf;
+    transform:scale(1.02);
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer{
+    background:#123a8f;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
+}
+
+footer p{
+    margin:8px 0;
+}
+
+/* ==========================
+   RECOMMENDATION LIST
+========================== */
+
+.container ul{
+    width:70%;
+    margin:20px auto;
+    text-align:left;
+    font-size:17px;
+}
+
+.container li{
+    margin:10px 0;
+}
+
+/* ==========================
+   DASHBOARD CARDS
+========================== */
+
+.cards{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:25px;
+    margin:35px 0;
+}
+
+.card{
+    background:white;
+    width:220px;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px) scale(1.03);
+}
+
+.card h2{
+    color:#2563eb;
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#555;
+    font-size:17px;
+}
+
+/* ==========================
+   TABLES
+========================== */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:25px;
+    overflow:hidden;
+    border-radius:10px;
+}
+
+table th,
+table td{
+    border:1px solid #ddd;
+    padding:14px;
+    text-align:center;
+}
+
+table th{
+    background:#2563eb;
+    color:white;
+    font-size:17px;
+}
+
+table tr:nth-child(even){
+    background:#f5f7ff;
+}
+
+table tr:hover{
+    background:#e8f0ff;
+}
+
+/* ==========================
+   CHART IMAGES
+========================== */
+
+img{
+    width:100%;
+    max-width:800px;
+    display:block;
+    margin:30px auto;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+/* ==========================
+   RESULT PAGE
+========================== */
+
+.result-box{
+    text-align:center;
+    padding:25px;
+    border-radius:15px;
+    background:#f8faff;
+    margin-top:20px;
+}
+
+.result-box h2{
+    font-size:30px;
+    color:#1e40af;
+}
+
+.result-box h3{
+    margin-top:15px;
+    color:#059669;
+}
+
+/* ==========================
+   HISTORY PAGE
+========================== */
+
+.history-table{
+    overflow-x:auto;
+}
+
+/* ==========================
+   ABOUT PAGES
+========================== */
+
+.about-section{
+    line-height:1.8;
+    font-size:18px;
+    color:#444;
+}
+
+.about-section h2{
+    color:#2563eb;
+    margin-bottom:15px;
+}
+
+/* ==========================
+   HORIZONTAL LINE
+========================== */
+
+hr{
+    margin:40px 0;
+    border:none;
+    border-top:2px solid #ddd;
+}
+
+/* ==========================
+   ANIMATIONS
+========================== */
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.feature-card,
+.card,
+.container,
+.hero{
+    animation:fadeIn .8s ease-in-out;
+}
+
+/* ==========================
+   SCROLLBAR
+========================== */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#2563eb;
+    border-radius:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#eeeeee;
+}
+
+/* ==========================
+   MOBILE RESPONSIVE
+========================== */
+
+@media(max-width:992px){
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .hero p{
+        font-size:18px;
+    }
+
+    .container{
+        width:95%;
+    }
+
+}
+
+@media(max-width:768px){
+
+    nav{
+        flex-direction:column;
+        text-align:center;
+        padding:20px;
+    }
+
+    nav ul{
+        flex-direction:column;
+        margin-top:15px;
+        gap:12px;
+    }
+
+    .hero{
+        padding:50px 20px;
+    }
+
+    .hero h1{
+        font-size:28px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .cards{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .card{
+        width:90%;
+    }
+
+    .container ul{
+        width:100%;
+    }
+
+    table{
+        font-size:14px;
+    }
+
+    button{
+        font-size:16px;
+    }
+
+}
+
+@media(max-width:480px){
+
+    nav h2{
+        font-size:20px;
+    }
+
+    .hero h1{
+        font-size:24px;
+    }
+
+    .hero-btn{
+        width:100%;
+    }
+
+}

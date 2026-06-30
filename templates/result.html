@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- Navigation -->
+
+<nav>
+
+    <h2>🎓 Student Placement Prediction</h2>
+
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/history">History</a></li>
+        <li><a href="/about">About Project</a></li>
+        <li><a href="/developer">Developer</a></li>
+    </ul>
+
+</nav>
+
+<!-- Result Container -->
+
+<div class="container">
+
+    <div class="result-box">
+
+        <h1>🎯 Prediction Result</h1>
+
+        <h2>{{ prediction }}</h2>
+
+        <hr>
+
+        <h3>📊 Confidence Score</h3>
+
+        <p style="font-size:30px; color:#2563eb; text-align:center; font-weight:bold;">
+            {{ confidence }}%
+        </p>
+
+        <hr>
+
+        <h3>🤖 AI Career Recommendation</h3>
+
+        <div style="
+            background:#f8f9ff;
+            border-left:6px solid #2563eb;
+            padding:20px;
+            margin-top:20px;
+            white-space:pre-wrap;
+            line-height:1.8;
+            border-radius:10px;
+            font-size:17px;
+        ">
+{{ ai_recommendation }}
+        </div>
+
+        <br>
+
+        <a href="/download">
+            <button>
+                📄 Download PDF Report
+            </button>
+        </a>
+
+        <br><br>
+
+        <a href="/">
+            <button>
+                🔄 Predict Another Student
+            </button>
+        </a>
+
+        <br><br>
+
+        <a href="/dashboard">
+            <button>
+                📊 View Dashboard
+            </button>
+        </a>
+
+    </div>
+
+</div>
+
+<footer>
+
+    <p>© 2026 Student Placement Prediction System</p>
+
+    <p>Developed by <strong>Subi</strong> using Python, Flask & Machine Learning + Google Gemini AI</p>
+
+</footer>
+
+</body>
+</html>

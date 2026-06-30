@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction History</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- Navigation -->
+
+<nav>
+
+    <h2>🎓 Student Placement Prediction</h2>
+
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/history">History</a></li>
+        <li><a href="/about">About Project</a></li>
+        <li><a href="/developer">Developer</a></li>
+    </ul>
+
+</nav>
+
+<!-- History Container -->
+
+<div class="container">
+
+    <h1>📜 Prediction History</h1>
+
+    <p style="text-align:center;">
+        View all previous placement predictions stored in the database.
+    </p>
+
+    <br>
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="🔍 Search by ID, IQ, CGPA or Prediction..."
+    >
+
+    <br><br>
+
+    {% if history %}
+
+    <div class="history-table">
+
+        <table id="historyTable">
+
+            <thead>
+
+                <tr>
+                    <th>ID</th>
+                    <th>IQ</th>
+                    <th>CGPA</th>
+                    <th>Prediction</th>
+                    <th>Confidence</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for row in history %}
+
+                <tr>
+
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[3] }}</td>
+                    <td>{{ row[9] }}</td>
+                    <td>{{ row[10] }}%</td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    {% else %}
+
+    <h3 style="color:red; text-align:center;">
+        No prediction history available.
+    </h3>
+
+    {% endif %}
+
+    <br>
+
+    <a href="/download_excel">
+        <button>📥 Download Excel Report</button>
+    </a>
+
+    <br><br>
+
+    <a href="/dashboard">
+        <button>📊 Go to Dashboard</button>
+    </a>
+
+    <br><br>
+
+    <a href="/">
+        <button>🏠 Back to Home</button>
+    </a>
+
+</div>
+
+<footer>
+
+    <p>© 2026 Student Placement Prediction System</p>
+
+    <p>Developed by <strong>Subi</strong> using Python, Flask & Machine Learning</p>
+
+</footer>
+
+<script>
+
+const searchInput = document.getElementById("searchInput");
+const table = document.getElementById("historyTable");
+
+if (searchInput && table) {
+
+    searchInput.addEventListener("keyup", function () {
+
+        const filter = this.value.toLowerCase();
+        const rows = table.getElementsByTagName("tr");
+
+        for (let i = 1; i < rows.length; i++) {
+
+            const cells = rows[i].getElementsByTagName("td");
+            let found = false;
+
+            for (let j = 0; j < cells.length; j++) {
+
+                if (cells[j].textContent.toLowerCase().includes(filter)) {
+                    found = true;
+                    break;
+                }
+
+            }
+
+            rows[i].style.display = found ? "" : "none";
+
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
