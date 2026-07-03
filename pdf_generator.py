@@ -2,17 +2,22 @@ from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 from datetime import datetime
 
+
 def generate_pdf(student, prediction, confidence, recommendations):
 
     filename = "prediction_report.pdf"
 
     c = canvas.Canvas(filename, pagesize=letter)
 
+    # -----------------------------
     # Title
+    # -----------------------------
     c.setFont("Helvetica-Bold", 18)
     c.drawString(120, 770, "Student Placement Prediction Report")
 
-    # Date & Time
+    # -----------------------------
+    # Date
+    # -----------------------------
     c.setFont("Helvetica", 10)
     c.drawString(
         50,
@@ -22,7 +27,9 @@ def generate_pdf(student, prediction, confidence, recommendations):
 
     y = 710
 
+    # -----------------------------
     # Student Details
+    # -----------------------------
     c.setFont("Helvetica-Bold", 14)
     c.drawString(50, y, "Student Details")
 
@@ -36,7 +43,9 @@ def generate_pdf(student, prediction, confidence, recommendations):
 
     y -= 10
 
+    # -----------------------------
     # Prediction
+    # -----------------------------
     c.setFont("Helvetica-Bold", 14)
     c.drawString(50, y, "Prediction")
 
@@ -48,23 +57,42 @@ def generate_pdf(student, prediction, confidence, recommendations):
     y -= 20
     c.drawString(70, y, f"Confidence: {confidence}%")
 
-    y -= 40
+    y -= 35
 
-    # Recommendations
+    # -----------------------------
+    # AI Recommendation
+    # -----------------------------
     c.setFont("Helvetica-Bold", 14)
-    c.drawString(50, y, "Recommendations")
+    c.drawString(50, y, "AI Recommendation")
 
     y -= 25
 
-    c.setFont("Helvetica", 12)
+    c.setFont("Helvetica", 11)
 
-    for item in recommendations:
-        c.drawString(70, y, "• " + item)
-        y -= 20
+    # Split Gemini response into lines
+    lines = recommendations.split("\n")
 
-    y -= 30
+    for line in lines:
 
+        if y < 50:
+            c.showPage()
+            c.setFont("Helvetica", 11)
+            y = 770
+
+        line = line.strip()
+
+        if line == "":
+            y -= 10
+            continue
+
+        c.drawString(60, y, line)
+        y -= 16
+
+    # -----------------------------
     # Footer
+    # -----------------------------
+    y -= 20
+
     c.setFont("Helvetica-Oblique", 10)
     c.drawString(
         50,

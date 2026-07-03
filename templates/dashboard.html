@@ -33,8 +33,7 @@
     <h1>📊 Student Placement Dashboard</h1>
 
     <p style="text-align:center;">
-        Monitor placement statistics, model performance, and dataset insights
-        generated using Machine Learning.
+        Monitor student placement statistics, prediction history, and model performance.
     </p>
 
     <!-- Statistics -->
@@ -63,7 +62,7 @@
 
         <div class="card">
             <h2>{{ accuracy }}%</h2>
-            <p>Model Accuracy</p>
+            <p>Average Prediction Confidence</p>
         </div>
 
     </div>
@@ -75,36 +74,69 @@
     <h2>📋 Dashboard Summary</h2>
 
     <p>
-        This dashboard provides a quick overview of student placement statistics,
-        the trained Machine Learning model performance, and feature analysis.
-        It helps users understand the overall placement trends within the dataset.
+        This dashboard provides an overview of student placement statistics,
+        machine learning prediction performance, and user prediction history.
+        It helps users understand the overall placement trend and evaluate
+        the effectiveness of the prediction model.
     </p>
 
     <hr>
 
-    <!-- Feature Importance -->
+    <!-- Prediction Statistics -->
 
-    <div class="chart">
+    <h2>📈 Prediction Statistics</h2>
 
-        <h2>📈 Feature Importance Analysis</h2>
+    <div class="cards">
 
-        <img src="{{ url_for('static', filename='charts/feature_importance.png') }}"
-             alt="Feature Importance Chart">
+        <div class="card">
+            <h2>{{ total_predictions }}</h2>
+            <p>Total Predictions</p>
+        </div>
+
+        <div class="card">
+            <h2>{{ average_iq }}</h2>
+            <p>Average IQ</p>
+        </div>
+
+        <div class="card">
+            <h2>{{ average_cgpa }}</h2>
+            <p>Average CGPA</p>
+        </div>
+
+        <div class="card">
+            <h2>{{ internship_percentage }}%</h2>
+            <p>Internship Experience</p>
+        </div>
+
+        <div class="card">
+            <h2>{{ average_confidence }}%</h2>
+            <p>Average Confidence</p>
+        </div>
 
     </div>
 
     <hr>
 
-    <!-- Placement Distribution -->
+    <!-- Model Information -->
 
-    <div class="chart">
+    <h2>🤖 Machine Learning Model</h2>
 
-        <h2>🥧 Placement Distribution</h2>
+    <p>
+        <strong>Algorithm:</strong> Random Forest Classifier
+    </p>
 
-        <img src="{{ url_for('static', filename='charts/placement_distribution.png') }}"
-             alt="Placement Distribution Chart">
+    <p>
+        <strong>Input Features:</strong>
+        IQ, Previous Semester Result, CGPA, Academic Performance,
+        Internship Experience, Extra Curricular Score,
+        Communication Skills and Projects Completed.
+    </p>
 
-    </div>
+    <p>
+        <strong>Output:</strong>
+        Predicts whether a student is likely to be placed and provides
+        personalized AI career recommendations using Google Gemini.
+    </p>
 
     <br>
 
@@ -119,7 +151,7 @@
 
     <p>© 2026 Student Placement Prediction System</p>
 
-    <p>Developed by <strong>Subi</strong> using Python, Flask & Machine Learning</p>
+    <p>Developed using Python, Flask, Machine Learning & Google Gemini AI</p>
 
 </footer>
 
